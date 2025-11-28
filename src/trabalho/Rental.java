@@ -1,3 +1,5 @@
+package trabalho;
+
 public class Rental {
 
     private Movie _movie;
@@ -16,11 +18,9 @@ public class Rental {
         return _movie;
     }
 
-    // MÉTODO MODIFICADO (Commit 9) - Delega para o filme
     public double getCharge() {
         return _movie.getCharge(_daysRented);
     }
-
 
     public int getFrequentRenterPoints() {
         return _movie.getFrequentRenterPoints(_daysRented);

@@ -1,4 +1,6 @@
-public class ChildrensPrice extends Price {
+package trabalho;
+
+public class ChildrensPrice extends trabalho.Price {
     public int getPriceCode() {
         return Movie.CHILDRENS;
     }

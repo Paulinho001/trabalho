@@ -1,3 +1,5 @@
+package trabalho;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -17,22 +19,18 @@ public class Customer {
         return _name;
     }
 
-    // MUDANÇA: Novo método PÚBLICO para expor os aluguéis
     public Enumeration getRentals() {
         return _rentals.elements();
     }
 
     public String statement() {
-        // Delega para a nova classe
         return new TextStatement().value(this);
     }
 
     public String htmlStatement() {
-        // Delega para a nova classe
         return new HtmlStatement().value(this);
     }
 
-    // MUDANÇA: Mudou de 'private' para 'public'
     public double getTotalCharge() {
         double result = 0;
         Enumeration rentals = _rentals.elements();
@@ -43,7 +41,6 @@ public class Customer {
         return result;
     }
 
-    // MUDANÇA: Mudou de 'private' para 'public'
     public int getTotalFrequentRenterPoints(){
         int result = 0;
         Enumeration rentals = _rentals.elements();
