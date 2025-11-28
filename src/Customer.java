@@ -26,11 +26,12 @@ public class Customer {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
 
+            // Chama o método lá de baixo
             thisAmount = amountFor(each);
 
             // add frequent renter points
             frequentRenterPoints ++;
-            // add bonus for a two day new release rental
+
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
                     each.getDaysRented() > 1) frequentRenterPoints ++;
 
@@ -47,10 +48,9 @@ public class Customer {
         return result;
     }
 
-
+    // MÉTODO COM O NOME DO PARÂMETRO JÁ ALTERADO (aRental)
     private double amountFor(Rental aRental) {
         double thisAmount = 0;
-
         switch (aRental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
                 thisAmount += 2;
