@@ -25,18 +25,12 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 
-            // add frequent renter points
-            frequentRenterPoints ++;
-            // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                    each.getDaysRented() > 1) frequentRenterPoints ++;
+            // MUDANÇA AQUI: Removemos o 'if' e chamamos o método direto
+            frequentRenterPoints += each.getFrequentRenterPoints();
 
             //show figures for this rental
-            // MUDANÇA: Usamos each.getCharge() direto aqui
             result += "\t" + each.getMovie().getTitle()+ "\t" +
                     String.valueOf(each.getCharge()) + "\n";
-
-            // MUDANÇA: E usamos each.getCharge() direto aqui também
             totalAmount += each.getCharge();
 
         }
