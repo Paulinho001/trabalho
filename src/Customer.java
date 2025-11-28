@@ -23,11 +23,7 @@ public class Customer {
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
         while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-
-            // MUDANÇA: Agora chamamos o método que está em Rental
-            thisAmount = each.getCharge();
 
             // add frequent renter points
             frequentRenterPoints ++;
@@ -36,9 +32,12 @@ public class Customer {
                     each.getDaysRented() > 1) frequentRenterPoints ++;
 
             //show figures for this rental
+            // MUDANÇA: Usamos each.getCharge() direto aqui
             result += "\t" + each.getMovie().getTitle()+ "\t" +
-                    String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+                    String.valueOf(each.getCharge()) + "\n";
+
+            // MUDANÇA: E usamos each.getCharge() direto aqui também
+            totalAmount += each.getCharge();
 
         }
         //add footer lines
