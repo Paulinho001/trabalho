@@ -7,7 +7,7 @@ public class NewReleasePrice extends Price {
         return daysRented * 3;
     }
 
-    // MUDANÇA: Regra específica para lançamentos (Bônus)
+    // MUDANÇA (Commit 15): Override para aplicar a regra de bônus
     public int getFrequentRenterPoints(int daysRented) {
         return (daysRented > 1) ? 2: 1;
     }
